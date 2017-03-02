@@ -1,0 +1,70 @@
+{
+  "name": "rxjs5-polling-demo",
+  "version": "2.0.0",
+  "description": "A demonstration of how RxJS can be used instead of setInterval for polling an API.",
+  "license": "MIT",
+  "private": true,
+  "repository": "posty72/rxjs5-polling-demo",
+  "homepage": "https://github.com/posty72/rxjs5-polling-demo",
+  "author": "Josh Post <josh@pixelfusion.co.nz>",
+  "contributors": [
+    "Te Riu Warren <te@pixelfusion.co.nz>",
+    "Hal Smith Stevens <hal@pixelfusion.co.nz>",
+    "Tia Aoake <tia@pixelfusion.co.nz>"
+  ],
+  "bugs": {
+    "url": "https://github.com/posty72/rxjs5-polling-demo/issues"
+  },
+  "engines": {
+    "node": ">=7"
+  },
+  "main": "static/index.html",
+  "scripts": {
+    "build": "front-end-scripts build",
+    "start": "./node_modules/.bin/concurrently \"front-end-scripts start\" \"node ./app/bin/www PORT=3001\"",
+    "setup-ssl": "openssl req -x509 -newkey rsa:2048 -keyout app/key.pem -out app/cert.pem -days 365",
+    "lint": "yarn run lint-css && yarn run lint-js",
+    "lint-css": "stylelint \"client/sass/**/*.{css,scss}\" --syntax scss",
+    "lint-js": "eslint \"client/js/**/*.{js,jsx}\" --quiet --fix",
+    "precommit": "yarn run lint",
+    "prepush": "yarn test",
+    "test": "jest"
+  },
+  "jest": {
+    "testRegex": "(/tests/unit/.*|\\.(test|spec))\\.(js|jsx)$",
+    "coverageDirectory": "tests/coverage",
+    "collectCoverage": true,
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^3.11.1",
+    "eslint-plugin-babel": "^4.0.0",
+    "eslint-plugin-filenames": "^1.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-react": "^6.8.0",
+    "front-end-scripts": "^1.0.0",
+    "husky": "^0.12.0",
+    "jest": "^18.0.0",
+    "stylelint": "^7.7.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.20.0",
+    "concurrently": "^3.3.0",
+    "normalize.css": "^5.0.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "rxjs": "^5.2.0",
+    "svg4everybody": "^2.0.3",
+    "whatwg-fetch": "^2.0.1",
+    "body-parser": "~1.16.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.0",
+    "express": "~4.14.1",
+    "hbs": "~4.0.1",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.2"
+  }
+}
